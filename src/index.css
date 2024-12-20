@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Toastify__toast-icon {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
