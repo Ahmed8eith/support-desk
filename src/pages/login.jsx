@@ -6,8 +6,8 @@ import { toast } from "react-toastify";
 function Login() {
   const [email, setEmail] = useState(""); // Track email input
   const [password, setPassword] = useState(""); // Track password input
-  const [visiblity,setVisiblity]=useState(true)
-  
+  const [visibility, setVisibility] = useState(true);
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -24,14 +24,17 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen p-4 sm:p-8">
       <header>
-        <h1 className="text-center text-3xl font-bold mt-20">
+        <h1 className="text-center text-2xl sm:text-3xl font-bold mt-10 sm:mt-20">
           Please log in to get support
         </h1>
       </header>
       <div className="flex items-center justify-center mt-6">
-        <form onSubmit={handleLogin} className="space-y-4 w-80">
+        <form
+          onSubmit={handleLogin}
+          className="space-y-4 w-full max-w-sm sm:w-80"
+        >
           {/* Email Input */}
           <input
             type="email"
@@ -42,9 +45,9 @@ function Login() {
             required
           />
           {/* Password Input with Toggle Button */}
-        <div className="relative">
+          <div className="relative">
             <input
-              type={visiblity ? "password" : "text"}
+              type={visibility ? "password" : "text"}
               placeholder="Enter your password"
               className="input input-bordered w-full pr-16"
               value={password}
@@ -54,13 +57,16 @@ function Login() {
             <button
               type="button"
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-sm text-gray-600 hover:text-gray-800 focus:outline-none"
-              onClick={() => setVisiblity((prevState) => !prevState)}
+              onClick={() => setVisibility((prevState) => !prevState)}
             >
-              {visiblity ? "Show" : "Hide"}
+              {visibility ? "Show" : "Hide"}
             </button>
           </div>
           {/* Submit Button */}
-          <button type="submit" className="btn btn-block bg-black text-white">
+          <button
+            type="submit"
+            className="btn btn-block bg-black text-white hover:bg-gray-800"
+          >
             Submit
           </button>
         </form>
